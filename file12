@@ -1,0 +1,16 @@
+function updateLight(current) {
+  let res = "";
+  switch (current) {
+      case "green":
+        res = "yellow";
+        break;
+      case "yellow":
+        res = "red";
+        break;
+      case "red":
+        res = "green";
+        break;
+      }
+  
+  return res;   
+}
