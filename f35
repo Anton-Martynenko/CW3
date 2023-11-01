@@ -1,0 +1,8 @@
+deadAntCount = function(ants) {
+  if (!ants) return 0
+  let str = ants.replace(/ant/g,'')
+  let head =  str.replace(/[^a]/g,'').length
+  let body =  str.replace(/[^n]/g,'').length
+  let tail =  str.replace(/[^t]/g,'').length
+  return Math.max(head,body,tail)
+}
