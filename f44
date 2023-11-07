@@ -1,0 +1,16 @@
+function tetris(a) {
+  let arr = [...new Array(9)].map(() => 0), count = 0;
+  const columns = 9, lineLimit = 30, startPosition = 4;
+  for (const step of a) {
+    let [t, dir, move] = step.split('');
+    const position = startPosition + Number((dir == 'L' ? '-' : '') + move);
+    arr[position] += Number(t);
+    const [min, max] = [Math.min(...arr), Math.max(...arr)];
+    if (max >= lineLimit) break;
+    if (min) {
+      arr.forEach((n, i) => arr[i] -= min);
+      count += min;;
+    }
+  }
+  return count;
+}
