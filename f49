@@ -1,0 +1,6 @@
+String.prototype.isAudio= function(){
+  return /\.mp3|\.flac|\.alac|\.aac/.test(this)&&!/[\s]/.test(this)
+};
+String.prototype.isImage= function(){
+  return /\.jpg|\.jpeg|\.png|\.bmp|\.gif/.test(this)&&!/[\s]/.test(this)&&!/[\d]/g.test(this)
+};
