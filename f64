@@ -1,0 +1,13 @@
+function stat(strg) {
+  let t = strg.split(', ').map(e => e.split('|').reduce((p,c) => p * 60 + Number(c))).sort((a,b) => a - b);
+  let length = t.length;
+  let half = Math.floor(length / 2);
+  let range = Math.max(...t) - Math.min(...t);
+  let average = Math.floor(t.reduce((p,c) => p + c) / length);
+  let median = length % 2 ? t[half] : Math.floor((t[half] + t[half - 1]) / 2);
+  let result = n => [Math.floor(n / 3600), Math.floor(n / 60 % 60), n % 60].map(e => `${e}`.padStart(2, '0')).join('|');
+  if (strg == '') {
+    return ''
+  }
+  return `Range: ${result(range)} Average: ${result(average)} Median: ${result(median)}`
+}
