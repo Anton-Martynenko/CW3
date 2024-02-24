@@ -1,0 +1,56 @@
+function fruit(reels, spins){
+  if (reels[0][spins[0]] === reels[1][spins[1]] && reels[1][spins[1]] == reels[2][spins[2]]) {
+      
+      return scoreRatio(reels[0][spins[0]]) * 10;
+  }
+  
+  else if (reels[0][spins[0]] === reels[1][spins[1]] || reels[0][spins[0]] == reels[2][spins[2]]) {
+      if (reels[0][spins[0]] !== 'Wild' && [reels[1][spins[1]], reels[2][spins[2]]].indexOf('Wild') >= 0) {
+          
+        return scoreRatio(reels[0][spins[0]]) * 2;
+                  
+      } else {
+          
+           return scoreRatio(reels[0][spins[0]]);
+                  
+      }
+  }
+  
+    else if (reels[1][spins[1]] == reels[2][spins[2]]) {
+      if (reels[1][spins[1]] !== 'Wild' && reels[0][spins[0]] === 'Wild') {
+          
+        return scoreRatio(reels[1][spins[1]]) * 2;
+                  
+      } else {
+          
+          return scoreRatio(reels[1][spins[1]]);
+      }
+      
+    } else { return 0; }
+    
+    function scoreRatio(item) {
+        switch (item) {
+            case 'Wild':
+                return 10;
+            case 'Star':
+                return 9;
+            case 'Bell':
+                return 8;
+            case 'Shell':
+                return 7;
+            case 'Seven':
+                return 6;
+            case 'Cherry':
+                return 5;
+            case 'Bar':
+                return 4;
+            case 'King':
+                return 3;
+            case 'Queen':
+                return 2;
+            case 'Jack':
+                return 1;
+            default:
+                return 0;
+        }
+    }
