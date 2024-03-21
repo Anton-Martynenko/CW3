@@ -1,0 +1,5 @@
+function areaOfPolygonInsideCircle(circleRadius, numberOfSides) {
+  let num = Math.PI / numberOfSides;
+  let result = circleRadius * circleRadius * numberOfSides * Math.sin(num * 2) / 2;
+  return Number(result.toFixed(3));
+}
