@@ -1,0 +1,15 @@
+function groupAnagrams(words){
+  let result = [];   
+  let map = {};    
+    for(let i = 0; i < words.length; i++) {       
+        let strSorted = words[i].split('').sort().join('');        
+        if(map[strSorted]!==undefined) {           
+            result[map[strSorted]].push(words[i])
+        } else {             
+            result.push([words[i]])            
+            map[strSorted] = result.length-1
+        }
+    }
+    
+    return result; 
+}
