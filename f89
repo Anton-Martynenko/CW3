@@ -1,0 +1,7 @@
+function same(aArr, bArr)
+{
+  if (aArr.length!==bArr.length) return false
+  aArr=aArr.map(v=>v.sort((a,b)=>a-b)).sort((a,b)=>a.reduce((a,b)=>a+b,0)-b.reduce((a,b)=>a+b,0)||a[0]-b[0])
+  bArr=bArr.map(v=>v.sort((a,b)=>a-b)).sort((a,b)=>a.reduce((a,b)=>a+b,0)-b.reduce((a,b)=>a+b,0)||a[0]-b[0])
+  return aArr.every((v,i)=>v[0]===bArr[i][0]&&v[1]===bArr[i][1]);
+}
