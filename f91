@@ -1,0 +1,15 @@
+function x(n){
+  let black = '□';
+  let white = '■';
+  let xShape = '';
+
+  for (let i = 0; i < n; i++) {
+    let row = black.repeat(n).split('');
+    row[i] = white;
+    row[n - 1 - i] = white;
+    row = row.join('');
+    xShape += `${row}\n`;
+  }
+
+  return xShape.slice(0, -1);
+}
