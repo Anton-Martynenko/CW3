@@ -1,0 +1,8 @@
+function decode(str) {
+  if (typeof str !=='string') return 'Input is not a string'
+  return str.replace(/[a-zA-Z]/g,v => {
+    let result1 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split``.reverse().join``;
+      return result2[result1.indexOf(v)]
+  })
+}
