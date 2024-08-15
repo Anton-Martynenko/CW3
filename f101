@@ -1,0 +1,16 @@
+function countPhotos(road){
+  
+  let arr = road.split('');
+  let count = 0;
+  let rightDot = arr.filter(x => x === '.').length;
+  let leftDot = 0;
+  
+  arr.forEach(x => {
+    if (x === '>') {count += rightDot; return};
+    if (x === '<') {count += leftDot; return};
+    if (x === '.') {rightDot--; leftDot++}
+  });
+  
+  return count;
+
+}
