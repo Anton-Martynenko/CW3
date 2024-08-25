@@ -1,0 +1,8 @@
+function zipWith(fn,a0,a1) {
+  let result = [];
+  let short = Math.min(a0.length, a1.length); 
+  for (let i = 0; i < short; i++){
+    result.push(fn(a0[i],a1[i]))
+  }
+  return result;
+}
