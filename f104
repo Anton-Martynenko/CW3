@@ -1,0 +1,13 @@
+function combine() {
+  let obj = {};
+  for(let i = 0; i < arguments.length; i++){
+    for(let j = 0; j < arguments[i].length; j++){
+      obj[j] = obj[j] ? obj[j].concat(arguments[i][j]) : [arguments[i][j]];
+    }
+  }
+  let result = [];
+  for(let key in obj){
+    result = result.concat(obj[key]);
+  }
+  return result;
+}
